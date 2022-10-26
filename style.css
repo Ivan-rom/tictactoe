@@ -1,0 +1,100 @@
+body {
+    background-color: rgb(42, 196, 144);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.choose-buttons {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.choose-button {
+    width: 50px;
+    background-color: rgb(20, 160, 113);
+    border: none;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
+.choose-button:hover,
+.reset:hover {
+    border: 2px solid rgb(29, 124, 92);
+}
+
+.choose-button.active {
+    border: 2px solid rgba(255, 255, 255, 0.945);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 300px;
+    gap: 10px;
+    background-color: rgb(20, 160, 113);
+    margin-bottom: 50px;
+}
+
+main button {
+    height: 100px;
+    border: none;
+    background-color: rgb(42, 196, 144);
+    background-repeat: no-repeat;
+}
+
+.reset {
+    border: 2px solid transparent;
+    border-radius: 5px;
+    width: 100px;
+    height: 25px;
+    color: white;
+    background-color: rgb(20, 160, 113);
+}
+
+.cross {
+    background-image: url(cross-svgrepo-com.svg);
+}
+
+.circle {
+    background-image: url(circle-outline-svgrepo-com.svg);
+}
+
+.modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:rgba(0, 0, 0, 0.404);
+}
+
+.modal-message {
+    width: 200px;
+    background-color: white;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+.modal-message img {
+    width: 30px;
+    display: inline;
+    margin-right: 20px;
+}
+
+.modal-message p {
+    display:inline;
+    font-size: 48px;
+}
