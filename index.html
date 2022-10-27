@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="choose-buttons">
-        <button class="choose-button" id="cross" data-obj="cross">
+        <button class="choose-button active" id="cross" data-obj="cross">
             <img src="cross-svgrepo-com.svg">
         </button>
         <button class="choose-button" id="circle" data-obj="circle">
@@ -31,10 +31,16 @@
 
     <button class="reset">Reset</button>
 
-    <div class="modal">
+    <div class="modal win">
         <div class="modal-message">
-            <img src="">
+            <img src="cross-svgrepo-com.svg">
             <p>WON!</p>
+        </div>
+    </div>
+
+    <div class="modal draw">
+        <div class="modal-message">
+            <p>DRAW!</p>
         </div>
     </div>
 
