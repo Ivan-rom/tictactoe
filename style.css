@@ -6,13 +6,15 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: sans-serif;
+    color: white;
 }
 
 .choose-buttons {
     display: flex;
-    gap: 50px;
-    margin-bottom: 50px;
+    gap: 15px;
     margin-top: 20px;
+    align-items: center;
+    font-size: 24px;
 }
 
 .choose-button {
@@ -22,6 +24,16 @@ body {
     box-sizing: border-box;
     border: 2px solid transparent;
     border-radius: 5px;
+}
+
+label {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.pc-status {
+    height: 10px;
 }
 
 .choose-button:hover,
