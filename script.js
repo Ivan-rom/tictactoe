@@ -70,6 +70,7 @@ var clickOnButton = function (element) {
     pcModecheckbox.disabled = true;
     element.classList.add(activeObj.dataset.obj);
     element.disabled = true;
+    element.innerHTML = activeObj.innerHTML;
     clickCounter++;
     checkForWin(activeObj.dataset.obj);
 };
@@ -81,6 +82,7 @@ var clear = function () {
         buttons[i].classList.remove("circle");
         buttons[i].classList.remove("cross");
         buttons[i].disabled = false;
+        buttons[i].innerHTML = "";
     }
     isWon = false;
     clickCounter = 0;
@@ -124,7 +126,7 @@ var roundEnds = function (clickCounter) {
         var modal = document.querySelector(".draw");
     } else {
         var modal = document.querySelector(".win");
-        modal.children[0].children[0].src = activeObj.children[0].src;
+        modal.children[0].children[0].innerHTML = activeObj.innerHTML;
         document.querySelector("#"+activeObj.dataset.obj+"-score").textContent++;
     }
     modal.style.display = "block";

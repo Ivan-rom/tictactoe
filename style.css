@@ -70,13 +70,6 @@ main button {
     background-color: rgb(20, 160, 113);
 }
 
-.cross {
-    background-image: url(cross-svgrepo-com.svg);
-}
-
-.circle {
-    background-image: url(circle-outline-svgrepo-com.svg);
-}
 
 .modal {
     display: none;
@@ -100,13 +93,21 @@ main button {
     z-index: 999;
 }
 
-.modal-message img {
+.modal-message div {
     width: 30px;
-    display: inline;
+    display: inline-block;
     margin-right: 20px;
 }
 
 .modal-message p {
     display:inline;
     font-size: 48px;
+}
+
+.circle-svg {
+    fill: white;
+}
+
+.draw {
+    text-align: center;
 }
