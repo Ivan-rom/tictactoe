@@ -90,7 +90,7 @@ main button {
 
 .modal-message {
     width: 200px;
-    background-color: white;
+    background-color: rgb(20, 160, 113);
     position: relative;
     top: 50%;
     left: 50%;

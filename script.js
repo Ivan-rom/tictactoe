@@ -7,6 +7,7 @@ var clickCounter = 0;
 var pcStatus = document.querySelector(".pc-status");
 var main = document.querySelector("main");
 var pcModecheckbox = document.querySelector("#vs-pc");
+var isWon = false;
 
 pcModecheckbox.addEventListener('change', function () {
     if (pcModecheckbox.checked) {
@@ -48,8 +49,8 @@ var addClickToButton = function (element) {
     element.addEventListener('click', function () {
         clickOnButton(element);
         if (pcModecheckbox.checked) {
-            var answer = checkForWin(activeObj.dataset.obj);
-            if (answer) {
+            // var answer = checkForWin(activeObj.dataset.obj);
+            if (!isWon) {
                 for (let i = 0; i < buttons.length; i++) {
                     buttons[i].disabled = true; 
                 }
@@ -81,6 +82,7 @@ var clear = function () {
         buttons[i].classList.remove("cross");
         buttons[i].disabled = false;
     }
+    isWon = false;
     clickCounter = 0;
     cross.disabled = false;
     if (pcModecheckbox.checked) {
@@ -94,25 +96,26 @@ var clear = function () {
 
 var checkForWin = function (obj) {
     var i = buttons;
-    if (i[0].className == i[1].className && i[0].className == i[2].className && i[0].className == obj) {roundEnds(); return 0;}
-    else if (i[3].className == i[4].className && i[3].className == i[5].className && i[3].className == obj) {roundEnds(); return 0;}
-    else if (i[6].className == i[7].className && i[6].className == i[8].className && i[6].className == obj) {roundEnds(); return 0;}
+    if (i[0].className == i[1].className && i[0].className == i[2].className && i[0].className == obj) {roundEnds(); isWon = true;}
+    else if (i[3].className == i[4].className && i[3].className == i[5].className && i[3].className == obj) {roundEnds(); isWon = true;}
+    else if (i[6].className == i[7].className && i[6].className == i[8].className && i[6].className == obj) {roundEnds(); isWon = true;}
     //horizontal
 
-    else if (i[0].className == i[3].className && i[0].className == i[6].className && i[0].className == obj) {roundEnds(); return 0}
-    else if (i[1].className == i[4].className && i[1].className == i[7].className && i[1].className == obj) {roundEnds(); return 0}
-    else if (i[2].className == i[5].className && i[2].className == i[8].className && i[2].className == obj) {roundEnds(); return 0}
+    else if (i[0].className == i[3].className && i[0].className == i[6].className && i[0].className == obj) {roundEnds(); isWon = true;}
+    else if (i[1].className == i[4].className && i[1].className == i[7].className && i[1].className == obj) {roundEnds(); isWon = true;}
+    else if (i[2].className == i[5].className && i[2].className == i[8].className && i[2].className == obj) {roundEnds(); isWon = true;}
     //vertical
 
-    else if (i[0].className == i[4].className && i[0].className == i[8].className && i[0].className == obj) {roundEnds(); return 0}
-    else if (i[2].className == i[4].className && i[2].className == i[6].className && i[2].className == obj) {roundEnds(); return 0}
+    else if (i[0].className == i[4].className && i[0].className == i[8].className && i[0].className == obj) {roundEnds(); isWon = true;}
+    else if (i[2].className == i[4].className && i[2].className == i[6].className && i[2].className == obj) {roundEnds(); isWon = true;}
     //diagonal
 
-    else {
-        if (clickCounter === 9) {
-            roundEnds(clickCounter);
-        }
-        return 1;
+    else if (clickCounter === 9) {
+        roundEnds(clickCounter);
+        isWon = true;
+    // draw
+    } else {
+        isWon = false;
     }
 };
 
@@ -122,6 +125,7 @@ var roundEnds = function (clickCounter) {
     } else {
         var modal = document.querySelector(".win");
         modal.children[0].children[0].src = activeObj.children[0].src;
+        document.querySelector("#"+activeObj.dataset.obj+"-score").textContent++;
     }
     modal.style.display = "block";
     restartGame(modal);
