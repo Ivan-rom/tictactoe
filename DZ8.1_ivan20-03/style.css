@@ -1,0 +1,59 @@
+body {
+    background-color: yellowgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+canvas {
+    display: block;
+    margin: 100px auto 0;
+}
+
+.modal {
+    width: 500px;
+    height: 350px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    position: absolute;
+    top: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 30px;
+    font-size: 50px;
+    color: white;
+    padding-top: 30px;
+}
+
+.modal-text {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: center;
+}
+
+p {
+    margin: 0;
+}
+
+button {
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    border: none;
+    background-image: url("img/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    transform: rotate(360deg);
+}
